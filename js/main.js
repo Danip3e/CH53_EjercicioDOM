@@ -27,10 +27,16 @@ btnMostrar.addEventListener("click", function(event){
     element.classList.add("list-group-item");
      let element2 = element.cloneNode(true);
 
-    listas.item(0).before(element);
-    listas.item(0).prepend(element2);
-    listas.item(0).append(element);
-    listas.item(0).after(element);
+   // listas.item(0).before(element);
+    //listas.item(0).prepend(element2);
+    //listas.item(0).append(element);
+    //listas.item(0).after(element);
+    //listas.item(1).insertAdjacentElement("afterbegin", element);
+    //listas.item(1).insertAdjacentElement("beforeend",element2);
+    listas.item(1).insertAdjacentHTML("beforebegin", `<li class="list-group-item">Before Begin Item</li>`);
+    listas.item(1).insertAdjacentHTML("afterend", `<li class="list-group-item">After End item</li>`);
+    listas.item(1).insertAdjacentHTML("afterbegin", `<li class="list-group-item">After Begin item</li>`);
+    listas.item(1).insertAdjacentHTML("beforeend", `<li class="list-group-item">Before End item</li>`);
 });
 
 //let contador=0;
