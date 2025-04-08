@@ -20,7 +20,17 @@ console.log(listas.item(1));
 console.log(elementos.item(2));
 
 btnMostrar.addEventListener("click", function(event){
-    console.log("botón btnModificar presionado");
+    //console.log("botón btnModificar presionado");
+
+    let element = document.createElement("li");
+    element.innerText="Another item"; //<li> Another item</li>
+    element.classList.add("list-group-item");
+     let element2 = element.cloneNode(true);
+
+    listas.item(0).before(element);
+    listas.item(0).prepend(element2);
+    listas.item(0).append(element);
+    listas.item(0).after(element);
 });
 
 //let contador=0;
