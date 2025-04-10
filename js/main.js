@@ -3,6 +3,10 @@ let encabezado1 = document.getElementById("encabezado1");
 //encabezado1.innerText = "DOM Ejercicio";
 let encabezado2= document.getElementById("encabezado2");
 let listas = document.getElementsByTagName("ul");// elementos de la etiqueta
+ let txtRFC = document.getElementById("txtRFC");
+ let txtCURP = document.getElementById("txtCURP");
+ let txTelefono = document.getElementById("txTelefono");
+
 
 let elementos = document.getElementsByClassName("list-group-item");//clase asignada de la etiqueta
 //tagname regresa elementos esta vivaaa
@@ -37,7 +41,37 @@ btnMostrar.addEventListener("click", function(event){
     listas.item(1).insertAdjacentHTML("afterend", `<li class="list-group-item">After End item</li>`);
     listas.item(1).insertAdjacentHTML("afterbegin", `<li class="list-group-item">After Begin item</li>`);
     listas.item(1).insertAdjacentHTML("beforeend", `<li class="list-group-item">Before End item</li>`);
-});
+});//btnMostrar
+// Se ejecuta cuando se termina de cargar todos los elementos de la página
+window.addEventListener("load",function(event){
+    console.log("se terminó de cargar la página");
+});//load
+
+//blur -> cuando se sale del campo
+// txtRFC.addEventListener("blur", function(event){
+//     event.preventDefault();
+//     txtRFC.value = txtRFC.value.toUpperCase();
+// });//txtRFC----> función para convertir a mayúsculas y los eventos blur de los campos de RFC
+
+// txtCURP.addEventListener("blur", function(event){
+//     event.preventDefault();
+//     txtCURP.value = txtCURP.value.toUpperCase();
+// });//txtCURP-----> función para convertir a mayúsculas y los eventos blur de los campos de CURP.
+
+function txtToUpper(event){
+    event.preventDefault();
+    event.target.value = event.target.value.trim().toUpperCase();
+}//txtToUpper
+//blur -> cuando se sale del campo
+txtRFC.addEventListener("blur",txtToUpper);// txtRFC
+txtCURP.addEventListener("blur",txtToUpper); //txtCURP
+
+
+
+txTelefono.addEventListener("blur", function (event){
+    event.preventDefault();
+    txTelefono.value = txTelefono.value.trim().slice(0,10);
+}); //txtTelefono
 
 //let contador=0;
 //function modifica(){
